@@ -11,6 +11,28 @@ module.exports = {
       },
     },
     extend: {
+      fontSize: {
+        headline1: ['2.25rem', { fontWeight: '700' }],
+        headline2: ['1.75rem', { fontWeight: '700' }],
+        headline3: ['1.125rem', { fontWeight: '600' }],
+        headline4: ['1.125rem', { fontWeight: '500' }],
+        'title-lg': ['1.125rem', { fontWeight: '700' }],
+        'title-md': ['1rem', { fontWeight: '600' }],
+        'title-sm': ['0.875rem', { fontWeight: '600' }],
+        'body-2xl': ['1.25rem', { fontWeight: '700' }],
+        'body-xl': ['1.25rem', { fontWeight: '500' }],
+        'body-lg': ['1.125rem', { fontWeight: '600' }],
+        'body-base': ['0.875rem', { fontWeight: '500' }],
+        'body-md': ['1rem', { fontWeight: '500' }],
+        'body-sm': ['0.8125rem', { fontWeight: '600' }],
+        'body-xs': ['0.75rem', { fontWeight: '700' }],
+        'body-mini': ['0.6875rem', { fontWeight: '600' }],
+        'body-min': ['0.625rem', { fontWeight: '500' }],
+        'button-lg': ['1.125rem', { fontWeight: '500' }],
+        'button-base': ['1rem', { fontWeight: '500' }],
+        'button-md': ['0.875rem', { fontWeight: '600' }],
+        'button-sm': ['0.75rem', { fontWeight: '600' }],
+      },
       keyframes: {
         'accordion-down': {
           from: { height: 0 },
