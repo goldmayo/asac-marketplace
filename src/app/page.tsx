@@ -2,12 +2,6 @@ import { Button } from '@/components/ui/button'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Button variant={'disable'}></Button>
-      <Button variant={'disable'}></Button>
-      <Button variant={'disable'}></Button>
-      <Button variant={'disable'}></Button>
-      <Button variant={'disable'} className="h-16"></Button>
-    </main>
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">main</main>
   )
 }
