@@ -1,7 +1,8 @@
 'use client'
-import { CiSearch,CiMenuBurger,CiHome, CiUser } from "react-icons/ci";
 import Link from 'next/link'
 import { useSelectedLayoutSegment } from "next/navigation";
+import React from 'react';
+import { CiHome, CiMenuBurger,CiSearch,CiUser } from "react-icons/ci";
 
 export default function MainLayout({
     children, 
@@ -9,7 +10,6 @@ export default function MainLayout({
     children: React.ReactNode
   }) {
     const segment = useSelectedLayoutSegment()
-    console.log(segment)
     return (
 <section className="relative h-screen">
   {children}

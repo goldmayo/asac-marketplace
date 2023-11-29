@@ -1,8 +1,9 @@
 'use client'
-import { PiHandbagSimple } from "react-icons/pi";
 import { Lobster } from 'next/font/google'
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import React from 'react';
+import { PiHandbagSimple } from "react-icons/pi";
 
 const lobster = Lobster({subsets:['latin'],weight:"400"})
 
@@ -14,14 +15,14 @@ const navLinks = [
   { href: "/specialOffer", tabLabel: "특가/혜택" },
 ];
 
-const NavLink = ({ href, tabLabel }: { href: string; tabLabel: string }) => {
+function NavLink({ href, tabLabel }: { href: string; tabLabel: string }) {
   const pathname = usePathname()
   return (
     <Link className={` ${pathname.startsWith(href) ? 'text-brand-primary-500 border-b-2 border-brand-primary-500' : 'text-grayscale-400'}`} href={href}>
       <div>{tabLabel}</div>
     </Link>
   );
-};
+}
 
 export default function HomeLayout({
     children, 
