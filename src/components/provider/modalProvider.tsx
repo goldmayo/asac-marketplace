@@ -4,10 +4,10 @@ import React, { createContext, useContext, useRef, useState } from 'react'
 import Modal from '@/components/common/modal/modal'
 
 type ModalState = {
-  modalContent: React.ReactNode
+  // modalContent: React.ReactNode
   modalRef: React.MutableRefObject<HTMLDialogElement | null>
   // eslint-disable-next-line no-unused-vars
-  setModalContnet: (children: React.ReactNode) => void
+  setModal: (content: React.ReactNode) => void
 }
 
 const ModalContext = createContext<ModalState | null>(null)
@@ -15,13 +15,14 @@ const ModalContext = createContext<ModalState | null>(null)
 export default function ModalProvider({ children }: { children: React.ReactNode }) {
   const modalRef = useRef<HTMLDialogElement | null>(null)
   const [modalContent, setModalContent] = useState<React.ReactNode>(<></>)
-  const setModalContnet = (children: React.ReactNode) => {
-    setModalContent(children)
+
+  const setModal = (content: React.ReactNode) => {
+    setModalContent(content)
   }
   return (
-    <ModalContext.Provider value={{ modalRef, modalContent, setModalContnet }}>
+    <ModalContext.Provider value={{ modalRef, setModal }}>
       {children}
-      <Modal ref={modalRef} />
+      <Modal ref={modalRef}>{modalContent}</Modal>
     </ModalContext.Provider>
   )
 }
