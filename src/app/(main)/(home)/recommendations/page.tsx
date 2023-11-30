@@ -4,10 +4,9 @@ import EventBanner from '@/components/feature/recommendations/eventBanner'
 
 export default function RecommendationsPage() {
   return (
-    <div className='min-h-scree flex flex-col pt-24'>
-    <EventBanner></EventBanner>
-    <div className='border-2'>home🏠</div>
+    <div className="min-h-scree flex flex-col pt-24">
+      <EventBanner />
+      <div className="border-2">home🏠</div>
     </div>
-
   )
 }
