@@ -4,10 +4,9 @@ import React, { createContext, useContext, useRef, useState } from 'react'
 import Modal from '@/components/common/modal/modal'
 
 type ModalState = {
-  // modalContent: React.ReactNode
   modalRef: React.MutableRefObject<HTMLDialogElement | null>
   // eslint-disable-next-line no-unused-vars
-  setModal: (content: React.ReactNode) => void
+  setModal: (children: React.ReactNode) => void
 }
 
 const ModalContext = createContext<ModalState | null>(null)
