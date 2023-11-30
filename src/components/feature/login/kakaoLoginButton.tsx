@@ -42,7 +42,7 @@ export default function KakaoLoginButton() {
   const handleKakaoLogin = () => {
     // window.location.href = 'http://localhost:8080/oauth2/authorization/kakao'
 
-    state.setModalContnet(<TestModal />)
+    state.setModal(<TestModal />)
     state.modalRef.current?.showModal()
   }
 
