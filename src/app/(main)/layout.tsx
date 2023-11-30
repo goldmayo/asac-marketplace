@@ -11,7 +11,7 @@ export default function MainLayout({
   }) {
     const segment = useSelectedLayoutSegment()
     return (
-<section className="relative h-screen">
+<section className="relative h-screen z-10">
   {children}
   <nav className="sticky bottom-0 h-14 bg-white border border-t-gray-300 text-2xl flex items-center justify-around">
     <Link className={`${segment === '(home)' ? 'text-brand-primary-500' : 'text-black'}`} href={"/recommendations"}>
