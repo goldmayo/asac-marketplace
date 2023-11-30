@@ -1,10 +1,16 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import React from 'react'
 
-const inter = Inter({ subsets: ['latin'] })
+import Provider from '@/components/provider/provider'
+
+const pretendard = localFont({
+  src: './PretendardVariable.woff2',
+  display: 'swap',
+  variable: '--font-pretendard',
+})
 
 export const metadata: Metadata = {
   title: 'Market place',
@@ -13,12 +19,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className='bg-fixed flex items-center justify-center h-full'>
+    <html lang="ko-KR" className={pretendard.className}>
+      <body className={`${pretendard.className} bg-fixed flex items-center justify-center h-full`}>
         <div className="bg-white overflow-auto w-96 h-screen ">
-          {children}
+          <Provider>{children}</Provider>
         </div>
       </body>
     </html>
-  );
+  )
 }
