@@ -24,7 +24,7 @@ export default class EventBanner extends Component {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        afterChange: current => this.setState({ activeSlide: current })
+        afterChange: (current: any) => this.setState({ activeSlide: current })
 
       };
       return (   

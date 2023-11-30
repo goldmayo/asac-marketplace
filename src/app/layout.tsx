@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko-KR" className={pretendard.className}>
       <body className={`${pretendard.className} bg-fixed flex items-center justify-center h-full`}>
-        <div className="bg-white overflow-auto w-96 h-screen ">
+        <div className="bg-white overflow-auto overflow-x-hidden w-96 h-screen ">
           <Provider>{children}</Provider>
         </div>
       </body>
