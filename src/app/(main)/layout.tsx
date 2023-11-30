@@ -1,7 +1,8 @@
 'use client'
-import { CiSearch,CiMenuBurger,CiHome, CiUser } from "react-icons/ci";
 import Link from 'next/link'
 import { useSelectedLayoutSegment } from "next/navigation";
+import React from 'react';
+import { CiHome, CiMenuBurger,CiSearch,CiUser } from "react-icons/ci";
 
 export default function MainLayout({
     children, 
@@ -9,9 +10,8 @@ export default function MainLayout({
     children: React.ReactNode
   }) {
     const segment = useSelectedLayoutSegment()
-    console.log(segment)
     return (
-<section className="relative h-screen">
+<section className="relative h-screen z-10">
   {children}
   <nav className="sticky bottom-0 h-14 bg-white border border-t-gray-300 text-2xl flex items-center justify-around">
     <Link className={`${segment === '(home)' ? 'text-brand-primary-500' : 'text-black'}`} href={"/recommendations"}>
