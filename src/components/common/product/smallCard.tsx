@@ -22,7 +22,7 @@ export default function SmallCard({ product }: SmallCardProps) {
       <div className="relative">
         <Image
           src={product.image}
-          alt="product name"
+          alt={product.productName}
           width={300}
           height={300}
           className="w-[126px] h-[164px] object-cover"
