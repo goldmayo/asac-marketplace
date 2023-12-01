@@ -6,9 +6,10 @@ import LastSale from '@/components/feature/recommendations/lastSale'
 export default function RecommendationsPage() {
   return (
     <div className="min-h-scree flex flex-col pt-24">
-      <EventBanner />
-      <div className="flex flex-col py-7 px-5 border-2 gap-7 border-brand-primary-500">
-        <LastSale />
+      <EventBanner></EventBanner>
+      <div className="px-5 py-7 gap-14 flex flex-col">
+        <LastSale></LastSale>
+        <div className="border-2">home🏠</div>
       </div>
     </div>
   )
