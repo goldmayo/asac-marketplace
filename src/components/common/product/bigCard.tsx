@@ -27,7 +27,7 @@ export default function BigCard({ product }: SmallCardProps) {
           height={300}
           className="w-80 h-[164px] object-cover"
         ></Image>
-        <div className="w-[34px] h-[34px] left-[80px] top-[115px] absolute bg-gray-700 bg-opacity-50 text-white rounded-[70px] justify-center items-center flex">
+        <div className="w-[34px] h-[34px] right-[21px] bottom-[17px] absolute bg-gray-700 bg-opacity-50 text-white rounded-[70px] justify-center items-center flex">
           <PiHandbagSimple />
         </div>
       </div>

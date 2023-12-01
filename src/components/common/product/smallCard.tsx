@@ -44,11 +44,9 @@ export default function SmallCard({ product }: SmallCardProps) {
           <div className="w-full h-px left-0 top-[8px] absolute bg-grayscale-200" />
         </div>
       </div>
-      <div className="items-center gap-1 flex text-gray-400">
-        <div className="text-body-sm">
-          <BiMessageRoundedDots />
-        </div>
-        <div className="text-body-mini font-medium">후기 {product.reviewCount}개</div>
+      <div className="items-center gap-1 flex text-gray-400 text-body-mini font-medium">
+        <BiMessageRoundedDots />
+        <div>후기 {product.reviewCount}개</div>
       </div>
     </div>
   )
