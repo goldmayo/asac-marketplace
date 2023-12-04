@@ -6,7 +6,7 @@ import WeekendSale from '@/components/feature/recommendations/weekendSale'
 
 export default function RecommendationsPage() {
   return (
-    <div className="min-h-scree flex flex-col pt-24">
+    <div className="flex flex-col">
       <EventBanner />
       <div className="px-5 py-7 gap-14 flex flex-col">
         <LastSale />
