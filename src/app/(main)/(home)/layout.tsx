@@ -6,8 +6,8 @@ import HomeTabs from '@/components/feature/home/homeTabs'
 export default function HomeLayout({ children }: { children: React.ReactNode }) {
   return (
     <section className="relative min-h-screen">
-      <HomeHeader></HomeHeader>
-      <HomeTabs></HomeTabs>
+      <HomeHeader />
+      <HomeTabs />
       {children}
     </section>
   )
