@@ -18,16 +18,16 @@ interface SmallCardProps {
 
 export default function BigCard({ product }: SmallCardProps) {
   return (
-    <div className="w-80 h-[271px] justify-start items-start gap-1 flex flex-col">
-      <div className="relative">
+    <div className="w-full h-full justify-start items-start gap-1 flex flex-col">
+      <div className="relative w-full h-2/3">
         <Image
           src={product.image}
           alt={product.productName}
           width={300}
           height={300}
-          className="w-80 h-[164px] object-cover"
+          className="w-full h-full object-cover"
         ></Image>
-        <div className="w-[34px] h-[34px] right-[21px] bottom-[17px] absolute bg-gray-700 bg-opacity-50 text-white rounded-[70px] justify-center items-center flex">
+        <div className="w-9 h-9 right-[4%] bottom-[6%] absolute bg-gray-700 bg-opacity-50 text-white rounded-[70px] justify-center items-center flex">
           <PiHandbagSimple />
         </div>
       </div>

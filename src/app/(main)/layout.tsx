@@ -7,9 +7,9 @@ import { CiHome, CiMenuBurger, CiSearch, CiUser } from 'react-icons/ci'
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const segment = useSelectedLayoutSegment()
   return (
-    <section className="relative h-screen z-10">
-      {children}
-      <nav className="sticky bottom-0 h-14 bg-white border border-t-gray-300 text-2xl flex items-center justify-around">
+    <section className="relative z-10">
+      <div className="pb-14"> {children}</div>
+      <nav className="fixed w-96 bottom-0 h-14 bg-white border-t border-t-gray-300 text-2xl flex items-center justify-around">
         <Link className={`${segment === '(home)' ? 'text-brand-primary-500' : 'text-black'}`} href={'/recommendations'}>
           <CiHome />
         </Link>
@@ -36,4 +36,3 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
     </section>
   )
 }
-
