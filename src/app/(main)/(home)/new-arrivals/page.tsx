@@ -1,8 +1,8 @@
 import React from 'react'
 
-import CommonProductList from '@/components/common/product/commonProductList'
-import EventBanner from '@/components/feature/newArrivals/eventBanner'
-import NewArrivalButton from '@/components/feature/newArrivals/newArrivalButton'
+import CommonProductList from '@/components/common/product/CommonProductList'
+import EventBanner from '@/components/feature/newArrivals/EventBanner'
+import NewArrivalButton from '@/components/feature/newArrivals/NewArrivalButton'
 
 export default function NewArrivalsPage() {
   return (

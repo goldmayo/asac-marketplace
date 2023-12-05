@@ -1,7 +1,7 @@
 import React from 'react'
 
 import productData from '@/../public/dummyData/productData.json'
-import SmallCard from '@/components/common/product/smallCard'
+import SmallCard from '@/components/common/product/SmallCard'
 
 export default function LastSale() {
   return (

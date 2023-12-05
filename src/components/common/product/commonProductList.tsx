@@ -2,7 +2,7 @@ import React from 'react'
 
 import productData from '@/../public/dummyData/productData.json'
 
-import SmallCard from './smallCard'
+import SmallCard from './SmallCard'
 
 export default function CommonProductList() {
   return (
