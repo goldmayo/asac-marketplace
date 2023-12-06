@@ -13,7 +13,7 @@ export default function SignupHeader() {
       left={
         <Button
           size={'icon'}
-          onClick={() => router.back()}
+          onClick={() => router.push('/login')}
           className="bg-transparent text-grayscale-900 hover:bg-transparent border-0 ring-0 shadow-none"
         >
           <CloseIcon size={'1.5rem'} />
@@ -23,7 +23,7 @@ export default function SignupHeader() {
       right={
         <Button
           size={'icon'}
-          onClick={() => router.back()}
+          // onClick={() => router.back()}
           className="bg-transparent text-grayscale-900 hover:bg-transparent border-0 ring-0 shadow-none ml-auto"
         >
           <ShoppingBagIcon size={'1.5rem'} />

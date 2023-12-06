@@ -59,7 +59,7 @@ export default function LoginForm() {
             <Button type="submit" variant={'primary'} className="w-full h-12">
               로그인
             </Button>
-            <Button type="button" variant={'outline'} onClick={() => router.push('/')} className="w-full h-12">
+            <Button type="button" variant={'outline'} onClick={() => router.push('/signup')} className="w-full h-12">
               회원가입
             </Button>
           </div>
