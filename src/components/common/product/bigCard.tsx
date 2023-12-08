@@ -4,11 +4,11 @@ import { BiMessageRoundedDots } from 'react-icons/bi'
 import { PiHandbagSimple } from 'react-icons/pi'
 
 interface Product {
-  productId: number
-  productName: string
+  itemId: number
+  name: string
   image: string
   discountRate: number
-  price: number
+  itemPrice: number
   reviewCount: number
 }
 
@@ -22,7 +22,7 @@ export default function BigCard({ product }: SmallCardProps) {
       <div className="relative w-full h-2/3">
         <Image
           src={product.image}
-          alt={product.productName}
+          alt={product.name}
           width={300}
           height={300}
           className="w-full h-full object-cover"
@@ -31,14 +31,14 @@ export default function BigCard({ product }: SmallCardProps) {
           <PiHandbagSimple />
         </div>
       </div>
-      <div className="w-full text-neutral-600 text-sm font-medium ">{product.productName}</div>
+      <div className="w-full text-neutral-600 text-sm font-medium ">{product.name}</div>
       <div className="flex gap-1 items-center">
         <div className="text-red-500 text-body-md">{product.discountRate}%</div>
         <div className="text-zinc-800 text-body-md font-semibold">
-          {(product.price * (100 - product.discountRate)) / 100}원
+          {(product.itemPrice * (100 - product.discountRate)) / 100}원
         </div>
         <div className="relative text-grayscale-200 text-sm">
-          {product.price}원
+          {product.itemPrice}원
           <div className="w-full h-px left-0 top-[10px] absolute bg-grayscale-200" />
         </div>
       </div>

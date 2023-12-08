@@ -1,15 +1,26 @@
 import React from 'react'
 
-import productData from '@/../public/dummyData/productData.json'
-
 import SmallCard from './SmallCard'
 
-export default function CommonProductList() {
+export interface Product {
+  itemId: number
+  name: string
+  image: string
+  discountRate: number
+  itemPrice: number
+  reviewCount: number
+}
+
+interface CommonProductListProps {
+  productList: Product[]
+}
+
+export default function CommonProductList({ productList }: CommonProductListProps) {
   return (
     // 사이즈
     <div className="grid grid-cols-2 justify-items-center gap-2 px-5 pt-4">
-      {productData.map((product) => (
-        <div key={product.productId} className="">
+      {productList.map((product: Product) => (
+        <div key={product.itemId} className="">
           <SmallCard product={product} />
         </div>
       ))}
