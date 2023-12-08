@@ -1,10 +1,9 @@
 'use client'
 import { useRouter } from 'next/navigation'
-import React from 'react'
 
 import Header from '@/components/common/header'
+import { Bag, Close } from '@/components/icons'
 import { Button } from '@/components/ui/button'
-import { CloseIcon, ShoppingBagIcon } from '@/lib/icons'
 
 export default function SignupHeader() {
   const router = useRouter()
@@ -16,7 +15,7 @@ export default function SignupHeader() {
           onClick={() => router.push('/login')}
           className="bg-transparent text-grayscale-900 hover:bg-transparent border-0 ring-0 shadow-none"
         >
-          <CloseIcon size={'1.5rem'} />
+          <Close height={'1.5rem'} width={'1.5rem'} />
         </Button>
       }
       center={<span className="text-center">회원가입</span>}
@@ -26,7 +25,7 @@ export default function SignupHeader() {
           // onClick={() => router.back()}
           className="bg-transparent text-grayscale-900 hover:bg-transparent border-0 ring-0 shadow-none ml-auto"
         >
-          <ShoppingBagIcon size={'1.5rem'} />
+          <Bag width={'1,5rem'} height={'1.5rem'} fill="white" />
         </Button>
       }
     />

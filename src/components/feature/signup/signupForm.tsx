@@ -1,19 +1,17 @@
 'use client'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
-import React from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 import CheckModal from '@/components/common/modal/checkModal'
+import SignupAgreement from '@/components/feature/signup/signupAgreement'
 import SignupValidationContainer from '@/components/feature/signup/SignupValidationContainer'
 import { useModalState } from '@/components/provider/modalProvider'
 import { Button } from '@/components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { signUpFormSchema } from '@/lib/schema/signup'
-
-import SignupAgreement from './signupAgreement'
 
 const FormSchema = signUpFormSchema
 
@@ -58,24 +56,23 @@ export default function SignupForm() {
   async function handleValidateEmail(email: string) {
     console.log(email)
     openCheckEmailModal(email)
-    // const isDuplicatedEmail = await fetch(`http:localhost:8080/api/members/check-email`, {
-    // const result = await fetch(`/api/members/check-email`, {
-    //   method: 'POST',
-    //   body: JSON.stringify({
-    //     email,
-    //   }),
-    // })
 
-    // if (result.ok) {
-    //   form.clearErrors('email')
-    //   // form.getFieldState("email").invalid
-    // } else {
-    //   form.setError('email', { message: '중복된 이메일입니다' }, { shouldFocus: false })
-    // }
+    const result = await fetch(`/api/members/check-email`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+      }),
+    })
+
+    if (result.ok) {
+      form.clearErrors('email')
+      // form.getFieldState("email").invalid
+    } else {
+      form.setError('email', { message: '중복된 이메일입니다' }, { shouldFocus: false })
+    }
   }
   async function handleValidatePhone(phone: string) {
     console.log(phone)
-
     openCheckPhoneModal(phone)
   }
   return (

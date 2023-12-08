@@ -1,11 +1,10 @@
 'use client'
 import { CheckedState } from '@radix-ui/react-checkbox'
-import React from 'react'
 import { UseFormReturn } from 'react-hook-form'
 
+import { CheckCircle } from '@/components/icons'
 import { Checkbox } from '@/components/ui/checkbox'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel } from '@/components/ui/form'
-import { CheckCircleIcon } from '@/lib/icons'
 import { SignUpInterface } from '@/lib/schema/signup'
 import { cn } from '@/lib/utils'
 
@@ -13,7 +12,7 @@ interface ISignUpAgreement {
   form: UseFormReturn<SignUpInterface, any, undefined>
 }
 
-const items = [
+const TERMS_LIST = [
   {
     id: 'termsOfUse',
     label: '이용약관 동의',
@@ -37,39 +36,22 @@ const items = [
 ] as const
 
 export default function SignupAgreement({ form }: ISignUpAgreement) {
-  const isAllChecked = () => {
-    return (
-      form.getValues('agreement.termsOfAge') &&
-      form.getValues('agreement.termsOfMarketing') &&
-      form.getValues('agreement.termsOfPersonalInfo') &&
-      form.getValues('agreement.termsOfUse')
-    )
+  const isAllTermsChecked = () => {
+    return !TERMS_LIST.some((el) => form.getValues(`agreement.${el.id}`) === false)
   }
 
-  const handleAllAgree = (checked: CheckedState, fieldName: any) => {
+  const handleSingleTerm = (checked: CheckedState, fieldName: any) => {
     checked ? form.setValue(fieldName, true) : form.setValue(fieldName, false)
-    return isAllChecked() ? form.setValue(`agreement.allAgree`, true) : form.setValue(`agreement.allAgree`, false)
+    return isAllTermsChecked() ? form.setValue(`agreement.allAgree`, true) : form.setValue(`agreement.allAgree`, false)
   }
 
-  const handleAllCheck = (checked: CheckedState) => {
+  const handleCheckAllTerms = (checked: CheckedState) => {
     let temp = checked
     temp ? form.setValue(`agreement.allAgree`, true) : form.setValue(`agreement.allAgree`, false)
 
     return temp
-      ? form.setValue('agreement', {
-          allAgree: true,
-          termsOfUse: true,
-          termsOfPersonalInfo: true,
-          termsOfMarketing: true,
-          termsOfAge: true,
-        })
-      : form.setValue('agreement', {
-          allAgree: false,
-          termsOfUse: false,
-          termsOfPersonalInfo: false,
-          termsOfMarketing: false,
-          termsOfAge: false,
-        })
+      ? TERMS_LIST.forEach((el) => form.setValue(`agreement.${el.id}`, true))
+      : TERMS_LIST.forEach((el) => form.setValue(`agreement.${el.id}`, false))
   }
 
   return (
@@ -86,17 +68,19 @@ export default function SignupAgreement({ form }: ISignUpAgreement) {
                 name={'agreement.allAgree'}
                 render={({ field }) => {
                   return (
-                    <FormItem className="flex flex-row items-start">
+                    <FormItem className="flex flex-rw items-start">
                       <FormControl>
                         <Checkbox
                           className="hidden"
                           checked={field.value}
-                          onCheckedChange={(checked) => handleAllCheck(checked)}
+                          onCheckedChange={(checked) => handleCheckAllTerms(checked)}
                         />
                       </FormControl>
                       <FormLabel className="flex gap-[14px] items-center text-title-md">
-                        <CheckCircleIcon
-                          className={cn('text-grayscale-200', {
+                        <CheckCircle
+                          width={'1rem'}
+                          height={'1rem'}
+                          className={cn('text-grayscale-200 fill-white ', {
                             'text-brand-primary-500': form.getValues('agreement.allAgree'),
                           })}
                         />
@@ -111,29 +95,31 @@ export default function SignupAgreement({ form }: ISignUpAgreement) {
               </FormDescription>
             </div>
             <div className="flex flex-col pt-5 gap-2">
-              {items.map((item) => (
+              {TERMS_LIST.map((term) => (
                 <FormField
-                  key={item.id}
+                  key={term.id}
                   control={form.control}
-                  name={`agreement.${item.id}`}
+                  name={`agreement.${term.id}`}
                   render={({ field }) => {
                     return (
-                      <FormItem key={item.id} className="flex flex-row items-start space-y-0">
+                      <FormItem key={term.id} className="flex flex-row items-start space-y-0">
                         <FormControl>
                           <Checkbox
                             className="hidden"
                             checked={field.value}
-                            onCheckedChange={(checked) => handleAllAgree(checked, `agreement.${item.id}`)}
+                            onCheckedChange={(checked) => handleSingleTerm(checked, `agreement.${term.id}`)}
                           />
                         </FormControl>
-                        <FormLabel className="flex items-center text-body-base">
-                          <CheckCircleIcon
-                            className={cn('text-grayscale-200 mr-[14px]', {
-                              'text-brand-primary-500': form.getValues(`agreement.${item.id}`),
+                        <FormLabel className="flex items-center gap-2 text-body-base">
+                          <CheckCircle
+                            width={'1rem'}
+                            height={'1rem'}
+                            className={cn('text-grayscale-200 fill-white ', {
+                              'text-brand-primary-500': form.getValues(`agreement.${term.id}`),
                             })}
                           />
-                          {item.label}
-                          <span className="text-grayscale-200">{item.require ? '(필수)' : '(선택)'}</span>
+                          {term.label}
+                          <span className="text-grayscale-200">{term.require ? '(필수)' : '(선택)'}</span>
                         </FormLabel>
                       </FormItem>
                     )
