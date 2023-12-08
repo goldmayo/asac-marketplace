@@ -18,16 +18,16 @@ interface SmallCardProps {
 
 export default function SmallCard({ product }: SmallCardProps) {
   return (
-    <div className=" w-[126px] h-[271px] justify-start items-start gap-1 flex flex-col">
-      <div className="relative">
+    <div className="h-full w-full justify-start items-start gap-1 flex flex-col">
+      <div className="relative w-full h-4/6">
         <Image
           src={product.image}
           alt={product.productName}
           width={300}
           height={300}
-          className="w-[126px] h-[164px] object-cover"
+          className="w-full h-full object-cover"
         ></Image>
-        <div className="w-[34px] h-[34px] left-[80px] top-[115px] absolute bg-gray-700 bg-opacity-50 text-white rounded-[70px] justify-center items-center flex">
+        <div className="w-8 h-8 right-[6%] bottom-[6%] absolute bg-gray-700 bg-opacity-50 text-white rounded-[70px] justify-center items-center flex">
           <PiHandbagSimple />
         </div>
       </div>
@@ -41,7 +41,7 @@ export default function SmallCard({ product }: SmallCardProps) {
         </div>
         <div className="relative text-grayscale-200 text-xs font-medium">
           {product.price}원
-          <div className="w-full h-px left-0 top-[8px] absolute bg-grayscale-200" />
+          <div className="w-full h-px left-0 top-2 absolute bg-grayscale-200" />
         </div>
       </div>
       <div className="items-center gap-1 flex text-gray-400 text-body-mini font-medium">
