@@ -2,7 +2,7 @@
 import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
-import { fetchBestItemsData } from '@/app/(main)/(home)/bestItems/fetchBestItems'
+import { fetchBestItemsData } from '@/app/(main)/(home)/best-items/fetchBestItems'
 import CommonProductList from '@/components/common/product/CommonProductList'
 
 export default function BestItemsList() {
