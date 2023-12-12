@@ -1,0 +1,148 @@
+{
+  "items": {
+    "totalElements": 6,
+
+    "content": [
+      {
+        "id": 9,
+        "name": "애플 고급 스마트폰 008",
+        "categoryId": 2,
+        "categoryName": "스마트폰",
+        "status": "NEW",
+        "promotionType": "NONE",
+        "stockQuantity": 59,
+        "registeredDate": "2021-04-16",
+        "discountRate": 1,
+        "itemPrice": 91116,
+        "image": "/images/hotdog.svg",
+        "brand": "누터스가든",
+        "reviewCount": 80
+      },
+      {
+        "id": 44,
+        "name": "애플 대형 청바지 010",
+        "categoryId": 6,
+        "categoryName": "청바지",
+        "status": "NEW",
+        "promotionType": "NONE",
+        "stockQuantity": 55,
+        "registeredDate": "2022-12-11",
+        "discountRate": 1,
+        "itemPrice": 75495,
+        "image": "/images/ricedog.svg",
+        "brand": "누터스",
+        "reviewCount": 80
+      },
+      {
+        "id": 47,
+        "name": "애플 무선 셔츠 002",
+        "categoryId": 7,
+        "categoryName": "셔츠",
+        "status": "NEW",
+        "promotionType": "NONE",
+        "stockQuantity": 60,
+        "registeredDate": "2022-12-29",
+        "discountRate": 18,
+        "itemPrice": 81600,
+        "image": "/images/hotdog.svg",
+        "brand": "누터스가든",
+        "reviewCount": 80
+      },
+      {
+        "id": 53,
+        "name": "애플 무선 셔츠 008",
+        "categoryId": 7,
+        "categoryName": "셔츠",
+        "status": "NEW",
+        "promotionType": "NONE",
+        "stockQuantity": 85,
+        "registeredDate": "2021-10-24",
+        "discountRate": 18,
+        "itemPrice": 69840,
+        "image": "/images/ricedog.svg",
+        "brand": "누터스",
+        "reviewCount": 80
+      },
+      {
+        "id": 71,
+        "name": "애플 고급 소설 004",
+        "categoryId": 10,
+        "categoryName": "소설",
+        "status": "NEW",
+        "promotionType": "NONE",
+        "stockQuantity": 5,
+        "registeredDate": "2021-11-29",
+        "discountRate": 19,
+        "itemPrice": 93344,
+        "image": "/images/ricedog.svg",
+        "brand": "누터스",
+        "reviewCount": 80
+      },
+      {
+        "id": 86,
+        "name": "애플 고급 과학 008",
+        "categoryId": 11,
+        "categoryName": "과학",
+        "status": "NEW",
+        "promotionType": "NONE",
+        "stockQuantity": 35,
+        "registeredDate": "2021-05-26",
+        "discountRate": 6,
+        "itemPrice": 73351,
+        "image": "/images/ricedog.svg",
+        "brand": "누터스",
+        "reviewCount": 80
+      }
+    ],
+    "pageable": {
+      "pageNumber": 0,
+      "pageSize": 10,
+      "sort": {
+        "empty": false,
+        "unsorted": false,
+        "sorted": true
+      },
+      "offset": 0,
+      "paged": true,
+      "unpaged": false
+    },
+    "last": true,
+    "totalPages": 1,
+    "totalElements": 6,
+    "first": true,
+    "size": 10,
+    "number": 0,
+    "sort": {
+      "empty": false,
+      "unsorted": false,
+      "sorted": true
+    },
+    "numberOfElements": 6,
+    "empty": false
+  },
+  "categoryCounts": {
+    "소설": 11,
+    "태블릿": 11,
+    "스마트폰": 11,
+    "셔츠": 11,
+    "노트북": 11,
+    "역사": 11,
+    "과학": 11,
+    "자켓": 11,
+    "청바지": 11
+  },
+  "brandCounts": {
+    "aaa": 11,
+    "bbb": 11,
+    "ccc": 11,
+    "ddd": 11,
+    "eee": 11,
+    "fff": 11
+  },
+  "priceRange": {
+    "0~10000": 11,
+    "10000~20000": 11,
+    "20000~50000": 11,
+    "50000이상": 11
+  }
+}

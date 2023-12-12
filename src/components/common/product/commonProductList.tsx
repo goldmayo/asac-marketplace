@@ -18,9 +18,9 @@ interface CommonProductListProps {
 export default function CommonProductList({ productList }: CommonProductListProps) {
   return (
     // 사이즈
-    <div className="grid grid-cols-2 justify-items-center gap-2 px-5 pt-4">
+    <div className="grid grid-cols-2 justify-items-center gap-3 px-5 pt-4">
       {productList.map((product: Product) => (
-        <div key={product.itemId} className="">
+        <div key={product.itemId} className="w-full px-1">
           <SmallCard product={product} />
         </div>
       ))}
