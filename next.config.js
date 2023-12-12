@@ -1,20 +1,37 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  // enabled: true,
+  enabled: false,
+  openAnalyzer: true,
+})
+
+const nextConfig = withBundleAnalyzer({
   webpack: (config) => {
     config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
+      test: /\.svg$/i,
+      use: [
+        {
+          loader: '@svgr/webpack',
+          options: {
+            dimensions: false,
+            typescript: true,
+            expandProps: 'end',
+            svgo: false,
+          },
+        },
+      ],
     })
     return config
   },
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/recommendations",
+        source: '/',
+        destination: '/recommendations',
         permanent: true,
       },
-    ];
+    ]
   },
   images: {
     remotePatterns: [
@@ -24,6 +41,6 @@ const nextConfig = {
       },
     ],
   },
-}
+})
 
 module.exports = nextConfig
