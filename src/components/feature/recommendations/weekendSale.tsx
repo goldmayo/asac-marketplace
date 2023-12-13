@@ -9,7 +9,7 @@ export default function WeekendSale() {
       <p className="text-headline3 ">주말특가</p>
       <div className="flex flex-col h-full w-full items-center gap-3">
         {productData.map((product) => (
-          <div key={product.productId} className="h-[269px] w-full flex flex-col items-center">
+          <div key={product.itemId} className="h-[269px] w-full flex flex-col items-center">
             <BigCard product={product} />
           </div>
         ))}

@@ -9,7 +9,7 @@ export default function LastSale() {
       <p className="text-headline3 ">마감세일</p>
       <div className="flex items-center overflow-x-scroll overflow-y-hidden h-[271px] gap-4">
         {productData.map((product) => (
-          <div key={product.productId} className="flex-none w-32 h-full">
+          <div key={product.itemId} className="flex-none w-32 h-full">
             <SmallCard product={product} />
           </div>
         ))}

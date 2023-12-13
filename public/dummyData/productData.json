@@ -1,26 +1,29 @@
 [
   {
-    "productId": 1,
-    "productName": "[누터스가든] CAT 누터스픽 짜먹는 간식 2종",
+    "itemId": 1,
+    "name": "[누터스가든] CAT 누터스픽 짜먹는 간식 2종",
     "image": "/images/hotdog.svg",
     "discountRate": 35,
-    "price": 6900,
-    "reviewCount": 80
+    "itemPrice": 6900,
+    "reviewCount": 80,
+    "brand": "누터스"
   },
   {
-    "productId": 2,
-    "productName": "[누터스가든] CAT 누터스픽 짜먹는 간식 2종",
+    "itemId": 2,
+    "name": "[누터스가든] CAT 누터스픽 짜먹는 간식 2종",
     "image": "/images/ricedog.svg",
     "discountRate": 40,
-    "price": 6900,
-    "reviewCount": 80
+    "itemPrice": 6900,
+    "reviewCount": 80,
+    "brand": "누터스가든"
   },
   {
-    "productId": 3,
-    "productName": "[누터스가든] CAT 누터스픽 짜먹는 간식 2종",
+    "itemId": 3,
+    "name": "[누터스가든] CAT 누터스픽 짜먹는 간식 2종",
     "image": "/images/hotdog.svg",
     "discountRate": 35,
-    "price": 6900,
-    "reviewCount": 80
+    "itemPrice": 6900,
+    "reviewCount": 80,
+    "brand": "누터스가든"
   }
 ]

@@ -5,7 +5,7 @@ import HomeTab from './HomeTab'
 const navLinks = [
   { href: '/recommendations', tabLabel: '추천' },
   { href: '/new-arrivals', tabLabel: '신상품' },
-  { href: '/bestItems', tabLabel: '베스트' },
+  { href: '/best-items', tabLabel: '베스트' },
   { href: '/budgetShooping', tabLabel: '알뜰쇼핑' },
   { href: '/specialOffer', tabLabel: '특가/혜택' },
 ]
