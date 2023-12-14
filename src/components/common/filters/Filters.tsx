@@ -19,11 +19,13 @@ export default function Filter({
   categoryCounts,
   brandCounts,
   priceRange,
+  stickyLocation,
 }: {
   totalEliments: number
   categoryCounts: object
   brandCounts: object
   priceRange: object
+  stickyLocation: string
 }) {
   const filters: FilterType = {
     카테고리: categoryCounts,
@@ -48,7 +50,9 @@ export default function Filter({
 
   return (
     <>
-      <div className="bg-white sticky top-24 py-2 px-4 flex justify-between z-10 text-body-xs text-gray-600">
+      <div
+        className={`bg-white sticky top-${stickyLocation} py-2 px-4 flex justify-between z-10 text-body-xs text-gray-600`}
+      >
         <div>총 {totalEliments}개</div>
         <div className="flex gap-3">
           <SortButton />

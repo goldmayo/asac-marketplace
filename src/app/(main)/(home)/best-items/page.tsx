@@ -10,7 +10,13 @@ export default async function BestItemsPage() {
   return (
     // filter안에서 total갯수 계산
     <div className="relative flex flex-col">
-      <Filters totalEliments={0} categoryCounts={categoryCounts} brandCounts={brandCounts} priceRange={priceRange} />
+      <Filters
+        totalEliments={0}
+        categoryCounts={categoryCounts}
+        brandCounts={brandCounts}
+        priceRange={priceRange}
+        stickyLocation={'24'}
+      />
       <AppliedFilter />
       <BestItemsList />
     </div>
