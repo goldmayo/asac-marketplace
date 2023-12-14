@@ -46,7 +46,7 @@ export default function FilterBottomSheet({
 
   const handleApplyFilter = () => {
     if (!selectedCategories.length) {
-      router.replace('/bestItems')
+      router.replace(`${pathname}`)
       return
     }
     setIsBottomSheetOpen(false)

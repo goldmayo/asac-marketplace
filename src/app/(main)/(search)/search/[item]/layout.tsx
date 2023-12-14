@@ -2,6 +2,7 @@ import React from 'react'
 import Filters from '@/components/common/filters/Filters'
 import SearchResultHeader from '@/components/feature/search/searchResult/SearchResultHeader'
 import { fetchFilterData } from '@/components/common/filters/fetchFilterData'
+import AppliedFilter from '@/components/common/filters/AppliedFilter'
 
 export default async function SearchResultLayout({
   children,
@@ -21,7 +22,7 @@ export default async function SearchResultLayout({
       <div className="fixed h-16 px-4 py-2 w-96 z-20 bg-white">
         <SearchResultHeader searchedWord={decodedItem} />
       </div>
-      <div className="border-red-400 flex flex-col relative pt-16">
+      <div className=" border-red-400 flex flex-col relative pt-16">
         <Filters
           totalEliments={0}
           categoryCounts={categoryCounts}
@@ -29,6 +30,8 @@ export default async function SearchResultLayout({
           priceRange={priceRange}
           stickyLocation={'16'}
         />
+        <AppliedFilter />
+
         {children}
       </div>
     </>
