@@ -5,7 +5,7 @@ export default function SuggestedSearches({ setSearchWord }: { setSearchWord: (s
   return (
     <div className="flex flex-col gap-3">
       <header className=" text-headline3">추천검색어</header>
-      {/* 탭 버튼 재사용 되는 곳 있으면 뺄꺼임 */}
+      {/* 탭 버튼 재사용 되는 곳 있으면 공통으로 뺄꺼임 */}
       <div className="flex flex-wrap text-body-sm text-brand-primary-500">
         {suggestedKeywords.map((suggestedKeyword) => (
           <button
