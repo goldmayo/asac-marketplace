@@ -1,9 +1,9 @@
 import React from 'react'
 
-import SmallCard from './SmallCard'
+import SmallCard from '@/components/common/product/smallCard'
 
 export interface Product {
-  itemId: number
+  id: number
   name: string
   image: string
   discountRate: number
@@ -20,9 +20,9 @@ export default function CommonProductList({ productList }: CommonProductListProp
     // 사이즈
     <div className="grid grid-cols-2 justify-items-center gap-3 px-5 pt-4">
       {productList.map((product: Product) => (
-        <div key={product.itemId} className="w-full px-1">
+        <button key={product.id} className="w-full px-1">
           <SmallCard product={product} />
-        </div>
+        </button>
       ))}
     </div>
   )

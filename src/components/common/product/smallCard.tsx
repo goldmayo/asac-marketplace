@@ -1,17 +1,24 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import { BiMessageRoundedDots } from 'react-icons/bi'
 import { PiHandbagSimple } from 'react-icons/pi'
 
-import { Product } from './CommonProductList'
+import { Product } from '@/components/common/product/commonProductList'
+import { useRouter } from 'next//navigation'
 
 interface SmallCardProps {
   product: Product
 }
 
 export default function SmallCard({ product }: SmallCardProps) {
+  const router = useRouter()
+  const itemId = product.id
   return (
-    <div className="h-full w-full justify-start items-start gap-1 flex flex-col">
+    <button
+      onClick={() => router.replace(`/item-detail/${product.id}`)}
+      className="h-full w-full justify-start items-start gap-1 flex flex-col"
+    >
       <div className="relative w-full h-4/6">
         <Image
           src={product.image}
@@ -24,8 +31,12 @@ export default function SmallCard({ product }: SmallCardProps) {
           <PiHandbagSimple />
         </div>
       </div>
-      <div className="w-full text-neutral-600 text-body-xs font-medium ">{product.name}</div>
       <div className="flex-col items-start flex">
+        <div className="w-full text-neutral-600 text-body-xs font-medium ">
+          {product.id}
+          {product.name}
+        </div>
+
         <div className="gap-1 inline-flex">
           <div className="text-red-500 text-body-sm">{product.discountRate}%</div>
           <div className="text-zinc-800 text-[13px] font-bold">
@@ -41,6 +52,6 @@ export default function SmallCard({ product }: SmallCardProps) {
         <BiMessageRoundedDots />
         <div>후기 {product.reviewCount}개</div>
       </div>
-    </div>
+    </button>
   )
 }
