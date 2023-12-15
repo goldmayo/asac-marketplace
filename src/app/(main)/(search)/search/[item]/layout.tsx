@@ -19,10 +19,8 @@ export default async function SearchResultLayout({
 
   return (
     <>
-      <div className="fixed h-16 px-4 py-2 w-96 z-20 bg-white">
-        <SearchResultHeader searchedWord={decodedItem} />
-      </div>
-      <div className=" border-red-400 flex flex-col relative pt-16">
+      <SearchResultHeader searchedWord={decodedItem} />
+      <div className=" border-red-400 flex flex-col relative">
         <Filters
           totalEliments={0}
           categoryCounts={categoryCounts}
