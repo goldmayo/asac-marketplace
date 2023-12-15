@@ -20,7 +20,7 @@ export default async function NewArrivalsLayout({ children }: { children: React.
         categoryCounts={categoryCounts}
         brandCounts={brandCounts}
         priceRange={priceRange}
-        stickyLocation={'24'}
+        stickyLocation={'top-24'}
       />
       <AppliedFilter />
       {children}

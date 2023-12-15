@@ -26,7 +26,7 @@ export default async function SearchResultLayout({
           categoryCounts={categoryCounts}
           brandCounts={brandCounts}
           priceRange={priceRange}
-          stickyLocation={'16'}
+          stickyLocation={'top-16'}
         />
         <AppliedFilter />
 

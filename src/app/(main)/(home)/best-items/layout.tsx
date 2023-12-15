@@ -15,7 +15,7 @@ export default async function BestItemsLayout({ children }: { children: React.Re
         categoryCounts={categoryCounts}
         brandCounts={brandCounts}
         priceRange={priceRange}
-        stickyLocation={'24'}
+        stickyLocation={'top-24'}
       />
       <AppliedFilter />
       {children}
