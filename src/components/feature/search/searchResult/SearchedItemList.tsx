@@ -2,15 +2,15 @@
 import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
-import { fetchBestItemsData } from '@/app/(main)/(home)/best-items/fetchBestItems'
 import CommonProductList from '@/components/common/product/commonProductList'
+import { fetchSearchItemsData } from '@/app/(main)/(search)/search/[item]/fetchSearchItems'
 
-export default function BestItemsList() {
+export default function SearchedItemList() {
   const [productList, setProductList] = useState([])
   const filterParam = useSearchParams().get('filter')
 
   useEffect(() => {
-    fetchBestItemsData(filterParam)
+    fetchSearchItemsData(filterParam)
       .then((data) => {
         setProductList(data.items.content)
       })
