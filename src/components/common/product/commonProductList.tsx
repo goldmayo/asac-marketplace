@@ -5,7 +5,7 @@ import SmallCard from '@/components/common/product/smallCard'
 export interface Product {
   id: number
   name: string
-  image: string
+  promotionUrl: string
   discountRate: number
   itemPrice: number
   reviewCount: number

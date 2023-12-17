@@ -6,7 +6,7 @@ import { PiHandbagSimple } from 'react-icons/pi'
 interface Product {
   itemId: number
   name: string
-  image: string
+  promotionUrl: string
   discountRate: number
   itemPrice: number
   reviewCount: number
@@ -21,7 +21,8 @@ export default function BigCard({ product }: SmallCardProps) {
     <div className="w-full h-full justify-start items-start gap-1 flex flex-col">
       <div className="relative w-full h-2/3">
         <Image
-          src={product.image}
+          // src={product.promotionUrl}
+          src={'/images/hotdog.svg'}
           alt={product.name}
           width={300}
           height={300}

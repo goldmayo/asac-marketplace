@@ -21,7 +21,8 @@ export default function SmallCard({ product }: SmallCardProps) {
     >
       <div className="relative w-full h-4/6">
         <Image
-          src={product.image}
+          // src={product.promotionUrl}
+          src={'/images/hotdog.svg'}
           alt={product.name}
           width={300}
           height={300}
