@@ -39,6 +39,18 @@ const nextConfig = withBundleAnalyzer({
         protocol: 'https',
         hostname: 'cdn.pixabay.com',
       },
+      {
+        protocol: 'http',
+        hostname: 'example.com',
+      },
+      {
+        protocol: 'http',
+        hostname: 'myshop.com',
+      },
+      {
+        protocol: 'http',
+        hostname: 'sales.com',
+      },
     ],
   },
 })

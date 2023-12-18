@@ -39,6 +39,9 @@ export default function Filter({
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false)
   const [clickedFilter, setClickedFilter] = useState<keyof FilterType>('카테고리')
 
+  // const topHeight = `top-${stickyLocation} bg-black`
+  // console.log(topHeight)
+
   const openFilterBottomSheet = (clickedFilter: keyof FilterType) => {
     setClickedFilter(clickedFilter)
     setIsBottomSheetOpen(true)
@@ -51,7 +54,7 @@ export default function Filter({
   return (
     <>
       <div
-        className={`bg-white sticky top-${stickyLocation} py-2 px-4 flex justify-between z-10 text-body-xs text-gray-600`}
+        className={`bg-white sticky ${stickyLocation} py-2 px-4 flex justify-between z-10 text-body-xs text-gray-600`}
       >
         <div>총 {totalEliments}개</div>
         <div className="flex gap-3">
