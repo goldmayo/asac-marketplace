@@ -1,5 +1,4 @@
 import React from 'react'
-import AppliedFilter from '@/components/common/filters/AppliedFilter'
 import { fetchFilterData } from '@/components/common/filters/fetchFilterData'
 import Filters from '@/components/common/filters/Filters'
 import EventBanner from '@/components/feature/newArrivals/EventBanner'
@@ -22,7 +21,6 @@ export default async function NewArrivalsLayout({ children }: { children: React.
         priceRange={priceRange}
         stickyLocation={'top-24'}
       />
-      <AppliedFilter />
       {children}
     </div>
   )

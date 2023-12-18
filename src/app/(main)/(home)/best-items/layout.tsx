@@ -1,4 +1,3 @@
-import AppliedFilter from '@/components/common/filters/AppliedFilter'
 import { fetchFilterData } from '@/components/common/filters/fetchFilterData'
 import Filters from '@/components/common/filters/Filters'
 
@@ -17,7 +16,6 @@ export default async function BestItemsLayout({ children }: { children: React.Re
         priceRange={priceRange}
         stickyLocation={'top-24'}
       />
-      <AppliedFilter />
       {children}
     </div>
   )
