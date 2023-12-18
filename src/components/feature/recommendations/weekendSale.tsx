@@ -1,7 +1,7 @@
 import React from 'react'
 
 import productData from '@/../public/dummyData/productData.json'
-import BigCard from '@/components/common/product/BigCard'
+import BigCard from '@/components/common/product/bigCard'
 
 export default function WeekendSale() {
   return (

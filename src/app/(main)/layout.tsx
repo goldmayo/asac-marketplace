@@ -14,17 +14,13 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
         <Link className={`${segment === '(home)' ? 'text-brand-primary-500' : 'text-black'}`} href={'/recommendations'}>
           <Home width={'1.5rem'} height={'1.5rem'} fill="transparent" />
         </Link>
-        {/* 아래는 아직 페이지 구현 x (만든 후 href 수정 예정) */}
         <Link
           className={`${segment === '(category)' ? 'text-brand-primary-500' : 'text-black'}`}
           href={'/recommendations'}
         >
           <Menu width={'1.5rem'} height={'1.5rem'} className="" fill="transparent" />
         </Link>
-        <Link
-          className={`${segment === '(search)' ? 'text-brand-primary-500' : 'text-black'}`}
-          href={'/recommendations'}
-        >
+        <Link className={`${segment === '(search)' ? 'text-brand-primary-500' : 'text-black'}`} href={'/search'}>
           <Search width={'1.5rem'} height={'1.5rem'} className="" fill="transparent" />
         </Link>
         <Link
