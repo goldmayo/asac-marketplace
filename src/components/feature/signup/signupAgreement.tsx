@@ -80,7 +80,7 @@ export default function SignupAgreement({ form }: ISignUpAgreement) {
                         <CheckCircle
                           width={'1rem'}
                           height={'1rem'}
-                          className={cn('text-grayscale-200 fill-white ', {
+                          className={cn('text-grayscale-200 fill-white', {
                             'text-brand-primary-500': form.getValues('agreement.allAgree'),
                           })}
                         />
