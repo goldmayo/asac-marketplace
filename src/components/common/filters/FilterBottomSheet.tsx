@@ -5,26 +5,25 @@ import { Button } from '@/components/ui/button'
 
 import FilterBottomSheetHeader from './FilterBottomSheetHeader'
 import FilterBottomSheetOptions from './FilterBottomSheetOptions'
-import { FilterType } from './Filters'
+import { FilterType, AppliedFilterType } from './Filters'
 
 interface FilterBottomSheetProps {
   filters: FilterType
-  appliedCategories: string[]
+  appliedFilters: AppliedFilterType
   clickedFilter: keyof FilterType
   setIsBottomSheetOpen: (value: React.SetStateAction<boolean>) => void
 }
 
 export default function FilterBottomSheet({
   filters,
-  appliedCategories,
+  appliedFilters,
   clickedFilter,
   setIsBottomSheetOpen,
 }: FilterBottomSheetProps) {
   const router = useRouter()
   const pathname = usePathname()
   const [selectedFilter, setSelectedFilter] = useState<keyof FilterType>(clickedFilter)
-  const [selectedCategories, setSelectedCategories] = useState<string[]>(appliedCategories)
-  console.log(appliedCategories)
+  const [selectedFilters, setSelectedFilters] = useState<AppliedFilterType>(appliedFilters)
 
   const handleFilterChange = (filterKey: keyof FilterType) => {
     setSelectedFilter(filterKey)
@@ -32,25 +31,39 @@ export default function FilterBottomSheet({
 
   const handleCheckboxChange = (option: string) => {
     console.log(`${option} checked!`)
-    const updatedCategories = getUpdatedArray(selectedCategories, option)
-    setSelectedCategories(updatedCategories)
+    const updatedFilters = getUpdatedFilters(selectedFilters, selectedFilter, option)
+    setSelectedFilters(updatedFilters)
   }
 
-  const getUpdatedArray = (selectedFilters: string[], option: string): string[] => {
-    const current = selectedFilters?.find((selectedCategory) => selectedCategory === option)
-    const updated = current
-      ? selectedFilters.filter((selectedCategory) => selectedCategory !== option)
-      : [...selectedFilters, option]
-    return updated
+  const getUpdatedFilters = (
+    selectedFilters: AppliedFilterType,
+    filterName: keyof FilterType,
+    option: string,
+  ): AppliedFilterType => {
+    const filterOptions = selectedFilters[filterName]
+
+    if (filterOptions) {
+      const updatedOptions = filterOptions.includes(option)
+        ? filterOptions.filter((item) => item !== option)
+        : [...filterOptions, option]
+
+      return { ...selectedFilters, [filterName]: updatedOptions }
+    }
+
+    return selectedFilters
   }
 
   const handleApplyFilter = () => {
-    if (!selectedCategories.length) {
-      router.replace(`${pathname}`)
-      return
-    }
     setIsBottomSheetOpen(false)
-    router.push(`${pathname}?filter=${selectedCategories}`)
+
+    const queryParams = Object.entries(selectedFilters)
+      .filter(([filter, selectedOptions]) => selectedOptions && selectedOptions.length > 0)
+      .map(([filterKey, selectedOptions]) => `${filterKey}=${selectedOptions.join(',')}`)
+      .join('&')
+    //queryParams is like {카테고리: '소설,태블릿,스마트폰', 브랜드: '구글,애플', 가격: '0~10000'}
+    console.log(queryParams)
+
+    router.push(`${pathname}?${queryParams}`)
   }
 
   return (
@@ -64,7 +77,7 @@ export default function FilterBottomSheet({
           />
           <FilterBottomSheetOptions
             selectedFilter={filters[selectedFilter]}
-            selectedCategories={selectedCategories}
+            selectedCategories={selectedFilters[selectedFilter] || []}
             handleCheckboxChange={handleCheckboxChange}
           />
 

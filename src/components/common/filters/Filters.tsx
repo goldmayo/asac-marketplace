@@ -7,13 +7,18 @@ import FilterButtons from '@/components/common/filters/FilterButtons'
 import FilterBottomSheet from './FilterBottomSheet'
 import FilterButton from './FilterButton'
 import SortButton from './SortButton'
+import AppliedFilters from './AppliedFilters'
 
 export interface FilterType {
   카테고리: object
   브랜드: object
   가격: object
 }
-
+export interface AppliedFilterType {
+  카테고리: string[]
+  브랜드: string[]
+  가격: string[]
+}
 export default function Filter({
   totalEliments,
   categoryCounts,
@@ -33,14 +38,17 @@ export default function Filter({
     가격: priceRange,
   }
   const searchParams = useSearchParams()
-  const filterParam = searchParams.get('filter')
-  const appliedCategories = filterParam ? filterParam.split(',') : []
+
+  const appliedFilters: AppliedFilterType = {
+    카테고리: searchParams.get('카테고리')?.split(',') ?? [],
+    브랜드: searchParams.get('브랜드')?.split(',') ?? [],
+    가격: searchParams.get('가격')?.split(',') ?? [],
+  }
+
+  console.log(appliedFilters)
 
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false)
   const [clickedFilter, setClickedFilter] = useState<keyof FilterType>('카테고리')
-
-  // const topHeight = `top-${stickyLocation} bg-black`
-  // console.log(topHeight)
 
   const openFilterBottomSheet = (clickedFilter: keyof FilterType) => {
     setClickedFilter(clickedFilter)
@@ -68,14 +76,14 @@ export default function Filter({
           <div className="fixed inset-0 bg-black opacity-40 z-30" onClick={closeFilterBottomSheet}></div>
           <FilterBottomSheet
             filters={filters}
-            appliedCategories={appliedCategories}
+            appliedFilters={appliedFilters}
             clickedFilter={clickedFilter}
             setIsBottomSheetOpen={setIsBottomSheetOpen}
           />
         </>
       )}
-
       <FilterButtons filters={filters} openFilterBottomSheet={openFilterBottomSheet} />
+      <AppliedFilters prevAppliedFilters={appliedFilters} />
     </>
   )
 }
