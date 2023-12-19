@@ -1,11 +1,11 @@
 'use client'
+import { useRouter } from 'next//navigation'
 import Image from 'next/image'
 import React from 'react'
 import { BiMessageRoundedDots } from 'react-icons/bi'
 import { PiHandbagSimple } from 'react-icons/pi'
 
 import { Product } from '@/components/common/product/commonProductList'
-import { useRouter } from 'next//navigation'
 
 interface SmallCardProps {
   product: Product
@@ -16,7 +16,7 @@ export default function SmallCard({ product }: SmallCardProps) {
   const itemId = product.id
   return (
     <button
-      onClick={() => router.replace(`/item-detail/${product.id}`)}
+      onClick={() => router.replace(`/items/${product.id}`)}
       className="h-full w-full justify-start items-start gap-1 flex flex-col"
     >
       <div className="relative w-full h-4/6">
@@ -27,15 +27,14 @@ export default function SmallCard({ product }: SmallCardProps) {
           width={300}
           height={300}
           className="w-full h-full object-cover"
-        ></Image>
+        />
         <div className="w-8 h-8 right-[6%] bottom-[6%] absolute bg-gray-700 bg-opacity-50 text-white rounded-[70px] justify-center items-center flex">
           <PiHandbagSimple />
         </div>
       </div>
-      <div className="flex-col items-start flex">
-        <div className="w-full text-neutral-600 text-body-xs font-medium ">
-          {product.id}
-          {product.name}
+      <div className="flex-col w-full items-start flex text-left">
+        <div className="w-full text-neutral-600 text-body-xs font-medium truncate">
+          [{product.brand}]{product.name}
         </div>
 
         <div className="gap-1 inline-flex">

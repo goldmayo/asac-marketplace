@@ -1,4 +1,4 @@
-import { fetchFilterData } from '@/components/common/filters/fetchFilterData'
+import { fetchFilterData } from '@/api/resource/search'
 import Filters from '@/components/common/filters/Filters'
 
 export default async function BestItemsLayout({ children }: { children: React.ReactNode }) {

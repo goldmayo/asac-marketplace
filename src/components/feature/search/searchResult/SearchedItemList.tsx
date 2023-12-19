@@ -2,29 +2,8 @@
 import { usePathname, useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
+import { fetchSearchItemsData } from '@/api/resource/search'
 import CommonProductList from '@/components/common/product/commonProductList'
-export async function fetchSearchItemsData(
-  searchWord: string,
-  categoryParams: string | null,
-  brandParams: string | null,
-  priceParams: string | null,
-) {
-  // console.log(
-  //   `http://3.36.91.126:8080/api/search/complexitem?name=${searchWord}${
-  //     categoryParams ? `&categoryName=${categoryParams}` : ''
-  //   }${brandParams ? `&brand=${brandParams}` : ''}${priceParams ? `&price=${priceParams}` : ''}`,
-  // )
-  const res = await fetch(
-    `http://3.36.91.126:8080/api/search/complexitem?name=${searchWord}${
-      categoryParams ? `&categoryName=${categoryParams}` : ''
-    }${brandParams ? `&brand=${brandParams}` : ''}${priceParams ? `&price=${priceParams}` : ''}`,
-  )
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  return await res.json()
-}
 
 export default function SearchedItemList() {
   const searchParams = useSearchParams()
