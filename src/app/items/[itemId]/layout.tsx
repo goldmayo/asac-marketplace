@@ -1,7 +1,8 @@
+import React from 'react'
+
 import BottomTab from '@/components/feature/item/BottomTab'
 import ItemHeader from '@/components/feature/item/ItemHeader'
 import ItemTabs from '@/components/feature/item/ItemTabs'
-import React from 'react'
 
 export async function fetchItemDetails(itemId: number) {
   const res = await fetch(`http://3.36.91.126:8080/api/items?itemId=${itemId}`)

@@ -1,13 +1,13 @@
 'use client'
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
+import AutoComplete from '@/components/feature/search/AutoComplete'
 import SearchBar from '@/components/feature/search/SearchBar'
 import SearchHeader from '@/components/feature/search/SearchHeader'
 import SuggestedSearches from '@/components/feature/search/SuggestedSearches'
 import TopSearches from '@/components/feature/search/TopSearches'
-import { useRouter } from 'next/navigation'
 import { ChevronLeft } from '@/components/icons'
-import AutoComplete from '@/components/feature/search/AutoComplete'
 
 export default function SearchPage() {
   const router = useRouter()
