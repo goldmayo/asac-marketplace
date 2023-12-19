@@ -35,10 +35,10 @@ export async function fetchFilterData(params: string) {
   //localhost:8080/api/search/counts?name=아
 
   if (!res.ok) {
-    throw new Error(`${await res.json()}Failed to fetch filter`)
+    throw new Error(`Failed to fetch filter`)
   }
   //filter data with params~~~
-  return res.json()
+  return await res.json()
   //  return filterData
 }
 
