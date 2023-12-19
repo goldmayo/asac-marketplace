@@ -3,20 +3,13 @@ import React from 'react'
 import { BiMessageRoundedDots } from 'react-icons/bi'
 import { PiHandbagSimple } from 'react-icons/pi'
 
-interface Product {
-  itemId: number
-  name: string
-  promotionUrl: string
-  discountRate: number
-  itemPrice: number
-  reviewCount: number
+import { ProductType } from '@/types/product'
+
+interface BigCardProps {
+  product: ProductType
 }
 
-interface SmallCardProps {
-  product: Product
-}
-
-export default function BigCard({ product }: SmallCardProps) {
+export default function BigCard({ product }: BigCardProps) {
   return (
     <div className="w-full h-full justify-start items-start gap-1 flex flex-col">
       <div className="relative w-full h-2/3">
@@ -32,14 +25,14 @@ export default function BigCard({ product }: SmallCardProps) {
           <PiHandbagSimple />
         </div>
       </div>
-      <div className="w-full text-neutral-600 text-sm font-medium ">{product.name}</div>
+      <div className="w-full text-neutral-600 text-sm font-medium ">
+        [{product.brand}]{product.name}
+      </div>
       <div className="flex gap-1 items-center">
         <div className="text-red-500 text-body-md">{product.discountRate}%</div>
-        <div className="text-zinc-800 text-body-md font-semibold">
-          {(product.itemPrice * (100 - product.discountRate)) / 100}원
-        </div>
+        <div className="text-zinc-800 text-body-md font-semibold">{product.itemPrice}원</div>
         <div className="relative text-grayscale-200 text-sm">
-          {product.itemPrice}원
+          {product.discountedPrice}원
           <div className="w-full h-px left-0 top-[10px] absolute bg-grayscale-200" />
         </div>
       </div>
