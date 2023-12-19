@@ -1,11 +1,11 @@
 'use client'
+import { useRouter } from 'next//navigation'
 import Image from 'next/image'
 import React from 'react'
 import { BiMessageRoundedDots } from 'react-icons/bi'
 import { PiHandbagSimple } from 'react-icons/pi'
 
 import { Product } from '@/components/common/product/commonProductList'
-import { useRouter } from 'next//navigation'
 
 interface SmallCardProps {
   product: Product

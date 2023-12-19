@@ -1,8 +1,9 @@
 import React from 'react'
+
+import AppliedFilter from '@/components/common/filters/AppliedFilter'
+import { fetchFilterData } from '@/components/common/filters/fetchFilterData'
 import Filters from '@/components/common/filters/Filters'
 import SearchResultHeader from '@/components/feature/search/searchResult/SearchResultHeader'
-import { fetchFilterData } from '@/components/common/filters/fetchFilterData'
-import AppliedFilter from '@/components/common/filters/AppliedFilter'
 
 export default async function SearchResultLayout({
   children,
