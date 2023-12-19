@@ -1,8 +1,8 @@
 'use client'
-import React, { FormEvent, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 
+import { Search, XCircle } from '@/components/icons'
 import { Input } from '@/components/ui/input'
-import { ChevronLeft, Search, XCircle } from '@/components/icons'
 
 export default function SearchBar({
   setSearchingWord,
