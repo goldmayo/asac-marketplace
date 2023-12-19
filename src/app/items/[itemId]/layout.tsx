@@ -29,7 +29,7 @@ export default async function Itemlayout({
       </div>
       <div className="pt-28 py-20 min-h-screen">{children}</div>
       <div className="fixed bottom-0 h-20 w-96">
-        <BottomTab />
+        <BottomTab wished={itemDetails.wished} />
       </div>
     </>
   )
