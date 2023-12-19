@@ -1,6 +1,6 @@
 import React from 'react'
 
-import EventBanner from '@/components/feature/recommendations/EventBanner'
+import EventBanner from '@/components/feature/recommendations/eventBanner'
 import LastSale from '@/components/feature/recommendations/lastSale'
 import WeekendSale from '@/components/feature/recommendations/weekendSale'
 

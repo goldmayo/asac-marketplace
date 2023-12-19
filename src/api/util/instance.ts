@@ -1,1 +1,6 @@
-export const baseURL = 'http://3.36.91.126:8080/api'
+export const baseURL = process.env.NEXT_PUBLIC_BASE_API_PATH
+
+export const commonHeader: HeadersInit = {
+  Accept: 'application/json',
+  'Content-Type': 'application/json;charset=utf-8',
+}

@@ -4,6 +4,8 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
+import { fetchCheckEmail, fetchCheckLoginId, fetchSignUp } from '@/api/resource/signup'
+import { encodeCheckEmail, encodeCheckUserId, encodeSignUpForm } from '@/api/service/signup'
 import CheckModal from '@/components/common/modal/checkModal'
 import SignupAgreement from '@/components/feature/signup/signupAgreement'
 import SignupValidationContainer from '@/components/feature/signup/SignupValidationContainer'
@@ -15,6 +17,13 @@ import { signUpFormSchema } from '@/lib/schema/signup'
 
 const FormSchema = signUpFormSchema
 
+const ErrorMsg = {
+  vaildate: {
+    userid: '사용 가능한 아이디입니다.',
+    email: '사용 가능한 이메일입니다.',
+    phone: '인증번호가 발송되었습니다.',
+  },
+}
 export default function SignupForm() {
   const router = useRouter()
   const state = useModalState()
@@ -33,48 +42,46 @@ export default function SignupForm() {
     mode: 'onChange',
   })
 
-  function onSubmit(data: z.infer<typeof FormSchema>) {
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
     console.log(data)
+    const res = await fetchSignUp(encodeSignUpForm({ form: data }))
+    const dd = await res.json()
+    console.log(dd)
   }
 
-  const openCheckUserIdModal = (userId: string) => {
-    state.setModal(<CheckModal content="사용 가능한 아이디입니다." />)
+  const openCheckModal = (content: string) => {
+    state.setModal(<CheckModal content={content} />)
     state.modalRef.current?.showModal()
   }
-  const openCheckEmailModal = (email: string) => {
-    state.setModal(<CheckModal content="사용 가능한 이메일입니다." />)
-    state.modalRef.current?.showModal()
-  }
-  const openCheckPhoneModal = (phone: string) => {
-    state.setModal(<CheckModal content="인증번호가 발송되었습니다." />)
-    state.modalRef.current?.showModal()
-  }
+
   async function handleValidateUserId(userId: string) {
     console.log(userId)
-    openCheckUserIdModal(userId)
+    const isValidId = await fetchCheckLoginId(encodeCheckUserId(userId))
+    if (isValidId) {
+      openCheckModal(ErrorMsg.vaildate.userid)
+      form.clearErrors('userId')
+    } else {
+      form.setError('email', { message: '중복된 아이디입니다' }, { shouldFocus: false })
+    }
   }
+
   async function handleValidateEmail(email: string) {
     console.log(email)
-    openCheckEmailModal(email)
+    const isValidEmail = await fetchCheckEmail(encodeCheckEmail(email))
+    isValidEmail && openCheckModal(email)
 
-    const result = await fetch(`/api/members/check-email`, {
-      method: 'POST',
-      body: JSON.stringify({
-        email,
-      }),
-    })
-
-    if (result.ok) {
+    if (isValidEmail) {
+      openCheckModal(ErrorMsg.vaildate.email)
       form.clearErrors('email')
-      // form.getFieldState("email").invalid
     } else {
       form.setError('email', { message: '중복된 이메일입니다' }, { shouldFocus: false })
     }
   }
   async function handleValidatePhone(phone: string) {
     console.log(phone)
-    openCheckPhoneModal(phone)
+    openCheckModal(ErrorMsg.vaildate.phone)
   }
+
   return (
     <section className="py-8 px-5">
       <Form {...form}>
