@@ -1,8 +1,10 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import SearchBar from '@/components/feature/search/SearchBar'
 import { useRouter } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
+
+import SearchBar from '@/components/feature/search/SearchBar'
 import { Bag, ChevronLeft } from '@/components/icons'
+
 import AutoComplete from '../AutoComplete'
 
 export default function SearchResultHeader({ searchedWord }: { searchedWord: string }) {

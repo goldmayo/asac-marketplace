@@ -1,6 +1,7 @@
+import React from 'react'
+
 import SvgHeart from '@/components/icons/heart'
 import { Button } from '@/components/ui/button'
-import React from 'react'
 
 export default function BottomTab() {
   return (

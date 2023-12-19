@@ -1,6 +1,7 @@
-import React from 'react'
-import { fetchItemDetails } from '../layout'
 import Image from 'next/image'
+import React from 'react'
+
+import { fetchItemDetails } from '../layout'
 
 // http://3.36.91.126:8080/api/items?itemId=1
 
