@@ -1,9 +1,8 @@
 import Image from 'next/image'
 import React from 'react'
 
+import { fetchItemDetails } from '@/api/resource/items'
 import SvgShare from '@/components/icons/share'
-
-import { fetchItemDetails } from './layout'
 
 export default async function ItemPage({ params }: { params: { itemId: number } }) {
   const itemDetails = await fetchItemDetails(params.itemId)
