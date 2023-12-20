@@ -12,7 +12,7 @@ export default function ItemTabs({ itemId }: { itemId: number }) {
   ]
   const pathname = usePathname()
   return (
-    <nav className="sticky top-20 text-body-sm bg-white flex justify-around z-10">
+    <nav className="sticky top-20 text-body-sm bg-white flex justify-around z-10 border-b border-b-grayscale-50">
       {navLinks.map((link, index) => (
         <Link
           key={index}

@@ -16,7 +16,7 @@ export default async function Itemlayout({
 
   return (
     <>
-      <div className="fixed top-0 bg-white w-96 flex flex-col gap-2">
+      <div className="fixed top-0 bg-white w-96 flex flex-col gap-2 z-10">
         <ItemHeader itemName={itemDetails.itemName} />
         <ItemTabs itemId={params.itemId} />
       </div>
