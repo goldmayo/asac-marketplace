@@ -15,7 +15,7 @@ export default function SmallCard({ product }: SmallCardProps) {
   const router = useRouter()
   return (
     <button
-      onClick={() => router.replace(`/items/${product.id}`)}
+      onClick={() => router.push(`/items/${product.id}`)}
       className="h-full w-full justify-start items-start gap-1 flex flex-col"
     >
       <div className="relative w-full h-4/6">
