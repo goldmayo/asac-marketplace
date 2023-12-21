@@ -14,7 +14,8 @@ export default async function SearchResultLayout({
 }) {
   const decodedItem = decodeURIComponent(params.item)
   const isSearchResultEmpty = await fetchIsEmpty(decodedItem)
-  let filterData = null
+
+  let filterData
 
   if (!isSearchResultEmpty) {
     filterData = await fetchFilterData(decodedItem)

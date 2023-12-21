@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 
 import FilterBottomSheetHeader from './FilterBottomSheetHeader'
 import FilterBottomSheetOptions from './FilterBottomSheetOptions'
-import { FilterType, AppliedFilterType } from './Filters'
+import { AppliedFilterType, FilterType } from './Filters'
 
 interface FilterBottomSheetProps {
   filters: FilterType

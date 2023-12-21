@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
+import React from 'react'
+
 import { AppliedFilterType } from './Filters'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 
 export default function AppliedFilters({ prevAppliedFilters }: { prevAppliedFilters: AppliedFilterType }) {
   const router = useRouter()

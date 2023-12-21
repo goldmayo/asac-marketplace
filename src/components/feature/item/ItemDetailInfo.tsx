@@ -1,11 +1,10 @@
-import React from 'react'
-import { fetchItemDetails } from '../layout'
 import Image from 'next/image'
+import React from 'react'
 
-// http://3.36.91.126:8080/api/items?itemId=1
+import { fetchItemDetails } from '@/api/resource/items'
 
-export default async function page({ params }: { params: { itemId: number } }) {
-  const itemDetails = await fetchItemDetails(params.itemId)
+export default async function ItemReview({ itemId }: { itemId: number }) {
+  const itemDetails = await fetchItemDetails(itemId)
 
   return (
     <div className=" flex flex-col px-4">

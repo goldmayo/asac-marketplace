@@ -17,9 +17,7 @@ export default function SearchPage() {
 
   useEffect(() => {
     router.push(`/search/${searchWord}`)
-    console.log('검색!', searchWord)
-    console.log(searchWord)
-  }, [searchWord])
+  }, [router, searchWord])
 
   return (
     <>

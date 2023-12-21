@@ -4,10 +4,10 @@ import { useState } from 'react'
 
 import FilterButtons from '@/components/common/filters/FilterButtons'
 
+import AppliedFilters from './AppliedFilters'
 import FilterBottomSheet from './FilterBottomSheet'
 import FilterButton from './FilterButton'
 import SortButton from './SortButton'
-import AppliedFilters from './AppliedFilters'
 
 export interface FilterType {
   카테고리: object
