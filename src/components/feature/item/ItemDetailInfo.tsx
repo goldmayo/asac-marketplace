@@ -3,8 +3,8 @@ import React from 'react'
 
 import { fetchItemDetails } from '@/api/resource/items'
 
-export default async function page({ params }: { params: { itemId: number } }) {
-  const itemDetails = await fetchItemDetails(params.itemId)
+export default async function ItemReview({ itemId }: { itemId: number }) {
+  const itemDetails = await fetchItemDetails(itemId)
 
   return (
     <div className=" flex flex-col px-4">

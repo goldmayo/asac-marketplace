@@ -1,25 +1,29 @@
 'use client'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import React from 'react'
 
 export default function ItemTabs({ itemId }: { itemId: number }) {
   const navLinks = [
-    { href: `/items/${itemId}`, tabLabel: '상품설명' },
-    { href: `/items/${itemId}/detail`, tabLabel: '상세정보' },
-    { href: `/items/${itemId}/review`, tabLabel: '후기' },
-    { href: `/items/${itemId}/inquiry`, tabLabel: '문의' },
+    { tab: null, tabLabel: '상품설명' },
+    { tab: `detail`, tabLabel: '상세정보' },
+    { tab: `review`, tabLabel: '후기' },
+    { tab: `nquiry`, tabLabel: '문의' },
   ]
-  const pathname = usePathname()
+  const param = useSearchParams()
+
   return (
     <nav className="sticky top-20 text-body-sm bg-white flex justify-around z-10 border-b border-b-grayscale-50">
       {navLinks.map((link, index) => (
         <Link
           key={index}
           className={`pb-1 ${
-            pathname === link.href ? 'text-brand-primary-500 border-b-2 border-brand-primary-500' : 'text-grayscale-400'
+            param.get('tab') === link.tab
+              ? 'text-brand-primary-500 border-b-2 border-brand-primary-500'
+              : 'text-grayscale-400'
           }`}
-          href={link.href}
+          href={link.tab === null ? `/items/${itemId}` : `/items/${itemId}?tab=${link.tab}`}
+          replace
         >
           <div>{link.tabLabel}</div>
         </Link>

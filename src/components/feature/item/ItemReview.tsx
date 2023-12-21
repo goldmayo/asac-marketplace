@@ -5,8 +5,8 @@ import PhotoReviews from '@/components/feature/item/review/PhotoReviews'
 import ReviewList from '@/components/feature/item/review/ReviewList'
 import ReviewNotice from '@/components/feature/item/review/ReviewNotice'
 
-export default async function page({ params }: { params: { itemId: number } }) {
-  const reviewData = await fetchReviews(params.itemId)
+export default async function ItemDetailInfo({ itemId }: { itemId: number }) {
+  const reviewData = await fetchReviews(itemId)
 
   return (
     <div className="flex flex-col gap-3 p-4">
