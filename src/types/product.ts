@@ -8,3 +8,8 @@ export interface ProductType {
   promotionUrl: string
   reviewCount: number
 }
+
+export interface CartItem extends ProductType {
+  count: number
+  selected: boolean
+}
