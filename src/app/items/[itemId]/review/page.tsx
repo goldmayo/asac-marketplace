@@ -11,6 +11,7 @@ export default async function page({ params }: { params: { itemId: number } }) {
   return (
     <div className="flex flex-col gap-3 p-4">
       <ReviewNotice />
+      {/* 추후에 추가 (공지)) */}
       <div className="h-28">
         <PhotoReviews reviewImages={reviewData.imageUrls} />
       </div>

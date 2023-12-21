@@ -31,6 +31,7 @@ export default function PhotoReviews({ reviewImages }: { reviewImages: string[] 
               <div className=" bg-grayscale-black bg-opacity-30 absolute inset-0 flex items-center justify-center">
                 <button className=" text-white text-title-sm font-medium rounded">더보기</button>
               </div>
+              // 더보기 이미지 부분 구현 필요
             )}
           </div>
         ))}
