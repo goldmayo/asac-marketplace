@@ -16,6 +16,7 @@ const buttonVariants = cva(
         disable: 'bg-grayscale-200 text-center text-white',
         ghost: 'border border-grayscale-100 bg-white text-center text-grayscale-200',
         kakao: 'text-grayscale-900 bg-[#FBD821] text-button-md hover:bg-[#FBD821]/80 hover:text-gray-700',
+        none: 'bg-transparent',
         default:
           'bg-grayscale-black text-gray-50 shadow hover:bg-gray-900/90 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90',
       },
@@ -24,6 +25,7 @@ const buttonVariants = cva(
         sm: 'w-[155px] h-[47px] px-[26px] py-2.5 rounded-[5px] justify-center items-center gap-2.5 inline-flex text-sm font-semibold',
         default: 'h-9 px-4 py-2 text-sm font-semibold',
         icon: 'h-9 w-9 text-sm font-medium',
+        checkbox: 'h-5 w-5',
       },
     },
     defaultVariants: {
