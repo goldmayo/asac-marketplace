@@ -9,23 +9,21 @@ import { reviewsType } from '@/types/review'
 export default function Review({ review, itemId }: { review: reviewsType; itemId: number }) {
   const [helpfulCount, setHelpfulCount] = useState(review.helpful)
   const [isHelpful, setIsHelpful] = useState(false)
+  // const [isHelpful, setIsHelpful] = useState(review.checked)
+  // api 업데이트 후 적용 (도움돼요 채크 여부)
 
-  const increaseHelpfulCount = async (reviewId: number) => {
-    try {
-      if (!isHelpful) {
-        const a = await fetchHelpfulCount(itemId, reviewId)
-        // 응답으로 늘어난 숫자 ㄱ
-        console.log(await a.text())
-        setHelpfulCount(helpfulCount + 1)
-      } else {
-        await fetchLessHelpCount(itemId, reviewId)
-        setHelpfulCount(helpfulCount + -1)
-      }
-      setIsHelpful((prevIsHelpful) => !prevIsHelpful)
-    } catch (error) {
-      console.error('도움돼요 실패', error)
+  const increaseHelpfulCount = async (reviewId: number, isHelpful: boolean, itemId: number) => {
+    if (!isHelpful) {
+      const a = await fetchHelpfulCount(itemId, reviewId)
+      console.log(await a.text())
+      setHelpfulCount(helpfulCount + 1)
+    } else {
+      await fetchLessHelpCount(itemId, reviewId)
+      setHelpfulCount(helpfulCount + -1)
     }
+    setIsHelpful((prevIsHelpful) => !prevIsHelpful)
   }
+  // 파라미터 밖에꺼 참조x 외부참조 x 순수함수성 보장 -> ishelpful
   return (
     <div className="flex flex-col gap-3 w-full h-full">
       <div className="flex gap-2 items-center">
@@ -44,9 +42,7 @@ export default function Review({ review, itemId }: { review: reviewsType; itemId
           // src={image}
           src={'/images/ricedog.svg'}
           fill
-          style={{
-            objectFit: 'cover',
-          }}
+          className=" object-cover"
         />
       </div>
       <div className=" text-body-base font-normal">{review.comment}</div>
@@ -55,7 +51,7 @@ export default function Review({ review, itemId }: { review: reviewsType; itemId
 
         <button
           onClick={async () => {
-            increaseHelpfulCount(review.reviewId)
+            increaseHelpfulCount(review.reviewId, isHelpful, itemId)
           }}
           className={`${
             isHelpful ? 'text-green-400' : 'text-grayscale-400'
